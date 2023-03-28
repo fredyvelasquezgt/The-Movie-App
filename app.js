@@ -12,7 +12,7 @@ app.get('/results' , (req, res) => {
 
     let query = req.query.search;
 
-    request('https://api.themoviedb.org/3/search/movie?api_key=12724b00b4c063fbc5f09f5729c5aec8&query='+query,(error, res, body) => {
+    request('https://api.themoviedb.org/3/search/movie?api_key=12724b00b4c063fbc5f09f5729c5aec8&query='+query,(error, response, body) => {
         if(error) {
             console.log(error)
         } 

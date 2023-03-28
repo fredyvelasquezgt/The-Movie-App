@@ -9,13 +9,13 @@
     </head>
 
     <body>
-        <h1 id="searchHeading">Search Result <span style="color:grey">></span><%searchQuery.toUpperCase()%></h1>
+        <h1 id="searchHeading">Search Result <span style="color:grey">></span><%=searchQuery.toUpperCase()%></h1>
         
         <% data["results"].forEach((movie) => { %>
             <div class="card mb-5 w-75">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2 <%=movie["poster_path"]%>" class="card-img img-fluid" >
+                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2<%=movie["poster_path"]%>" class="card-img img-fluid" >
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
