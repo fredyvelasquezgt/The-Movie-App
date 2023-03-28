@@ -18,7 +18,7 @@ app.get('/results' , (req, res) => {
         } 
 
         let data = JSON.parse(body);
-        res.render('movies', {data:data});
+        res.render('movies', {data:data, searchQuery:query});
 
 
 
