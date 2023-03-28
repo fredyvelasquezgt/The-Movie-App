@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express();
 const path = require('path');
+const request = require('request');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -8,7 +9,23 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/results' , (req, res) => {
-    res.render('movies');
+
+    let query = req.query.search;
+
+    request('https://api.themoviedb.org/3/search/movie?api_key=12724b00b4c063fbc5f09f5729c5aec8&query='+query,(error, res, body) => {
+        if(error) {
+            console.log(error)
+        } 
+
+        let data = JSON.parse(body);
+        res.render('movies', {data:data});
+
+
+
+    });
+
+
+
 })
 
 app.get('/search', (req, res) => {
